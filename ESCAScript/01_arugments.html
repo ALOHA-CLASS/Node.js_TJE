@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function regularFunction() {
+            console.log(arguments);
+        }
+        
+        regularFunction(1, 'hello', true);
+
+        const arrowFunction = () => {
+            console.log(arguments); // 에러: arguments는 화살표 함수에서 사용 불가
+        };
+
+        arrowFunction(1, 'hello', true);
+    </script>
+</body>
+</html>

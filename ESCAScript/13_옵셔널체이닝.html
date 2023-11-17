@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 👩‍💻 옵셔널 체이닝
+        const user = {
+            id: 1,
+            username: 'john_doe',
+            profile: {
+            email: 'john@example.com',
+            address: {
+                city: 'New York'
+            }
+            }
+        };
+        
+        // 중첩된 프로퍼티에 안전하게 접근
+        const city = user?.profile?.address?.city;
+        console.log(city); // 출력: 'New York'
+        
+        // ❌ (에러) const nonExistentProperty = user.nonExistentProperty.test;
+        // ✅ (가능) 옵셔널 체이닝 적용
+        const nonExistentProperty = user.nonExistentProperty?.test;
+        console.log(nonExistentProperty); // 출력: undefined
+    </script>
+</body>
+</html>

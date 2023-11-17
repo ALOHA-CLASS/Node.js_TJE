@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       // XMLHttpRequest 객체 생성
+        var xhr = new XMLHttpRequest();
+
+        // 이벤트 핸들러 등록
+        xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            // 요청이 완료되면 실행되는 코드
+            if (xhr.status === 200) {
+            // 성공적으로 응답 받았을 때의 코드
+            console.log(xhr.responseText);
+            } else {
+            // 오류 처리 코드
+            console.error('Request failed with status:', xhr.status);
+            }
+        }
+        };
+
+        var url = 'https://httpbin.org/get'
+
+        // 요청 열기
+        xhr.open('GET', url, true);
+
+        // 요청 전송
+        xhr.send();
+
+
+       
+
+    </script>
+</body>
+</html>
