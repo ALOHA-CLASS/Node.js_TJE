@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인 화면</title>
+</head>
+<body>
+    <h1>메인 화면</h1>
+    <h3>- index.html </h3>
+    <ul>
+        <li><a href="/users">users</a></li>
+        <li><a href="/about">about</a></li>
+    </ul>
+
+    <hr>
+    <h5>회원 조회</h5>
+    <div>
+        <label for="userId">회원 id</label>
+        <input type="text" name="id" id="userId" placeholder="회원id 입력">
+        <button onclick="getUser()">조회</button> <br>
+        <textarea name="user" id="user" cols="40" rows="5"></textarea>
+    </div>
+    
+    <hr>
+    <h5>회원 등록</h5>
+    <div>
+        <button onclick="postUser()">등록</button> <br>
+        <textarea name="user" id="post" cols="40" rows="5"></textarea>
+    </div>
+
+    <hr>
+    <h5>회원 수정</h5>
+    <div>
+        <input type="text" name="putId" id="putId" placeholder="수정할 id 입력">
+        <button onclick="putUser()">수정</button> <br>
+        <textarea name="user" id="put" cols="40" rows="5"></textarea>
+    </div>
+
+    <hr>
+    <h5>회원 삭제</h5>
+    <div>
+        <input type="text" name="deleteId" id="deleteId" placeholder="삭제할 id 입력">
+        <button onclick="deleteUser()">삭제</button> <br>
+        <textarea name="user" id="delete" cols="40" rows="5"></textarea>
+    </div>
+
+    <div style="height: 500px;"></div>
+
+    <script>
+        // 회원 조회 - /users/id - GET
+        function getUser() {
+            let userId = document.getElementById('userId').value
+            // fetch를 사용하여 GET 요청 보내기
+            fetch(`http://localhost:3000/users/${userId}`)
+                .then(response => {
+                    // 서버 응답을 JSON 형식으로 파싱
+                    console.log(response);
+                    return response.text()          // Promise
+                })
+                .then((data) => {
+                    console.log(data);
+                    document.getElementById('user').value = data
+                })
+                .catch(error => {
+                    // 오류 처리
+                    console.error('Request failed:', error);
+                });
+        }
+
+        // 회원 등록
+        function postUser() {
+            let url = 'http://localhost:3000/users'
+            const init = {
+                method  : 'POST',
+            }
+
+            // fetch를 사용하여 POST 요청 보내기
+            fetch(url, init)
+                .then(response => {
+                    // 서버 응답을 JSON 형식으로 파싱
+                    console.log(response);
+                    return response.text()          // Promise
+                })
+                .then((data) => {
+                    console.log(data);
+                    document.getElementById('post').value = data
+                })
+                .catch(error => {
+                    // 오류 처리
+                    console.error('Request failed:', error);
+                });
+        }
+
+        // 회원 수정
+        function putUser() {
+            let userId = document.getElementById('putId').value
+            let url = `http://localhost:3000/users/${userId}`
+            const init = {
+                method  : 'PUT',
+            }
+
+            // fetch를 사용하여 PUT 요청 보내기
+            fetch(url, init)
+                .then(response => {
+                    // 서버 응답을 JSON 형식으로 파싱
+                    console.log(response);
+                    return response.text()          // Promise
+                })
+                .then((data) => {
+                    console.log(data);
+                    document.getElementById('put').value = data
+                })
+                .catch(error => {
+                    // 오류 처리
+                    console.error('Request failed:', error);
+                });
+        }
+
+        // 회원 삭제
+        function deleteUser() {
+            let userId = document.getElementById('deleteId').value
+            let url = `http://localhost:3000/users/${userId}`
+            const init = {
+                method  : 'DELETE',
+            }
+
+            // fetch를 사용하여 PUT 요청 보내기
+            fetch(url, init)
+                .then(response => {
+                    // 서버 응답을 JSON 형식으로 파싱
+                    console.log(response);
+                    return response.text()          // Promise
+                })
+                .then((data) => {
+                    console.log(data);
+                    document.getElementById('delete').value = data
+                })
+                .catch(error => {
+                    // 오류 처리
+                    console.error('Request failed:', error);
+                });
+        }
+
+    </script>
+</body>
+</html>
