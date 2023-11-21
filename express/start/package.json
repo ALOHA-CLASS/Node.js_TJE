@@ -1,0 +1,14 @@
+{
+  "name": "express",
+  "version": "1.0.0",
+  "description": "hello express",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "joeun",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
