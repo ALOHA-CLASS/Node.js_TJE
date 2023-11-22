@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 목록</title>
+</head>
+<body>
+    <h1>게시글 목록</h1>
+    <a href="/board/insert">글쓰기</a>
+    <ul>
+        {% for board in boardList %}
+            <li>
+            <strong>{{ board.title }}</strong>
+            <p>작성자: {{ board.writer }}</p>
+            <p>{{ board.content }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

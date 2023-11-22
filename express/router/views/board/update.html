@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 수정</title>
+</head>
+<body>
+    <h1>게시글 수정</h1>
+    <form action="/board/update" method="post">
+        <input type="hidden" name="id" value="{{id}}">
+        <input type="text" name="title" placeholder="제목" value="{{board.title}}"> <br>
+        <input type="text" name="writer" placeholder="작성자" value="{{board.writer}}"> <br>
+        <input type="text" name="content" placeholder="내용" value="{{board.content}}"> <br>
+        <input type="submit" value="수정">
+    </form>
+</body>
+</html>
