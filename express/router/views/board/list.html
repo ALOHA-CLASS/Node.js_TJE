@@ -11,7 +11,9 @@
     <ul>
         {% for board in boardList %}
             <li>
-            <strong>{{ board.title }}</strong>
+            <a href="/board/{{loop.index -1}}">
+                <strong>{{ board.title }}</strong>
+            </a>
             <p>작성자: {{ board.writer }}</p>
             <p>{{ board.content }}</p>
             </li>

@@ -7,8 +7,21 @@
 </head>
 <body>
     <h1>게시글 읽기</h1>
-    {{ board.title }}
-    {{ board.writer }}
-    {{ board.content }}
+    <table border="1">
+        <tr>
+            <td>제목</td>
+            <td>{{ board.title }}</td>
+        </tr>
+        <tr>
+            <td>작성자</td>
+            <td>{{ board.writer }}</td>
+        </tr>
+        <tr>
+            <td>내용</td>
+            <td>{{ board.content }}</td>
+        </tr>
+    </table>
+    <a href="/board/update/{{id}}">수정</a>
+    
 </body>
 </html>

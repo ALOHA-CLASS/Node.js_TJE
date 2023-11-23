@@ -14,5 +14,9 @@
         <input type="text" name="content" placeholder="내용" value="{{board.content}}"> <br>
         <input type="submit" value="수정">
     </form>
+    <form action="/board/delete" method="post">
+        <input type="hidden" name="id" value="{{id}}">
+        <input type="submit" value="삭제">
+    </form>
 </body>
 </html>

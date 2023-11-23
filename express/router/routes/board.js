@@ -27,7 +27,7 @@ router.get('/insert', (req, res) => {
 router.post('/', (req, res) => {
     // 구조분해할당
     const { title, writer, content } = req.body;
-    // const title = req.body.title
+    // const title = req.body.title 
     // const writer = req.body.writer
     // const content = req.body.content
 
@@ -53,7 +53,8 @@ router.post('/update', (req, res) => {
 
 // 👩‍💻 게시글 삭제
 router.post('/delete', (req, res) => {
-    const id = req.params.id;
+    const id = req.body.id;
+    console.log('삭제 : ' + id);
     boardList.splice(id, 1);
     res.redirect('/board');
 });
@@ -65,7 +66,7 @@ router.get('/:id', (req, res) => {
     console.log(`id : ${req.params.id}`);
     let id = req.params.id
     let board = boardList[id]
-    res.render('board/read', {board})
+    res.render('board/read', {board, id})
 })
 
 
