@@ -1,4 +1,5 @@
 const express = require('express')
+const Sequelize = require('sequelize');             // ✅ Sequelize 추가
 const Board = require('../models/board')            // ✅ Board 모델 import
 const router = express.Router()
 
@@ -63,7 +64,8 @@ router.post('/update', async (req, res) => {
         result = await Board.update({
             title: title,
             writer: writer,
-            content: content
+            content: content,
+            upd_date: Sequelize.literal('now()')
         }, {
             where: {board_no: id}
         })
