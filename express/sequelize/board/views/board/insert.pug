@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+  div.container-lg
+    h1 게시글 등록
+    form(action="/board", method="post") 
+      table.table.form-group(border=1)
+          tr
+            th(width="200") Title
+            td 
+                input(type="text", name="title")
+          tr
+            th(width="200") Writer
+            td 
+                input(type="text", name="writer")
+          tr
+            th(width="200") Content
+            td 
+                input(type="text", name="content")
+
+      div.btn-box
+        a.btn(href="/board") 목록
+        button.btn(type="submit") 등록
+
+    

@@ -1,0 +1,30 @@
+{% extends '../layout.njk' %}
+
+{% block content %}
+  <div class="container-lg">
+    <div class="btn-box">
+      <h1>게시글 목록</h1>
+      <a class="btn" href="/board/insert">글쓰기</a>
+    </div>
+    <table class="table" border="1">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Title</th>
+          <th>Writer</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for board in boardList %}
+          <tr>
+            <td width="80">{{ loop.index }}</td>
+            <td>
+              <a href="/board/{{ loop.index }}">{{ board.title }}</a>
+            </td>
+            <td width="200">{{ board.writer }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

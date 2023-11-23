@@ -1,0 +1,25 @@
+{% extends '../layout.njk' %}
+
+{% block content %}
+  <div class="container-lg">
+    <h1>{{ board.title }}</h1>
+    <table class="table" border="1">
+      <tr>
+        <th width="200">No</th>
+        <td>{{ id }}</td>
+      </tr>
+      <tr>
+        <th width="200">Writer</th>
+        <td>{{ board.writer }}</td>
+      </tr>
+      <tr>
+        <th width="200">Content</th>
+        <td>{{ board.content }}</td>
+      </tr>
+    </table>
+    <div class="btn-box">
+      <a class="btn" href="/board">목록</a>
+      <a class="btn" href="/board/update/{{ id }}">수정</a>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+  div.container-lg
+    h1 #{board.title}
+    table.table(border=1)
+        tr 
+          th(width="200") No
+          td #{id}
+        tr
+          th(width="200") Writer
+          td #{board.writer}
+        tr
+          th(width="200") Content
+          td #{board.content}
+
+    div.btn-box
+      a.btn(href="/board") 목록
+      a.btn(href=`/board/update/${id}`) 수정
+
+    

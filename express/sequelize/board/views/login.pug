@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  div.container
+      h2 Login
+      form
+        div.form-group
+          label(for="username") Username:
+          input(type="text", id="username", name="username", required)
+        div.form-group
+          label(for="password") Password:
+          input(type="password", id="password", name="password", required)
+        div.form-group
+          button.btn(type="submit") Login
+          a.btn(href="/join") Sign Up

@@ -1,0 +1,38 @@
+{% extends '../layout.njk' %}
+
+{% block content %}
+  <div class="container-lg">
+    <h1>게시글 수정</h1>
+    <form action="/board/update" method="post">
+      <input type="hidden" name="id" value="{{ id }}">
+      <table class="table form-group" border="1">
+        <tr>
+          <th width="200">No</th>
+          <td>{{ id }}</td>
+        </tr>
+        <tr>
+          <th width="200">Title</th>
+          <td>
+            <input type="text" name="title" value="{{ board.title }}">
+          </td>
+        </tr>
+        <tr>
+          <th width="200">Writer</th>
+          <td>
+            <input type="text" name="writer" value="{{ board.writer }}">
+          </td>
+        </tr>
+        <tr>
+          <th width="200">Content</th>
+          <td>
+            <input type="text" name="content" value="{{ board.content }}">
+          </td>
+        </tr>
+      </table>
+      <div class="btn-box">
+        <a class="btn" href="/board">목록</a>
+        <button class="btn" type="submit">수정</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}

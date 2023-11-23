@@ -1,0 +1,20 @@
+extends ../layout
+
+block content
+  div.container-lg
+    div.btn-box
+        h1 게시글 목록
+        a.btn(href="/board/insert") 글쓰기 
+    table.table(border=1)
+      thead
+        tr
+          th No
+          th Title
+          th Writer
+      tbody
+        each board, index in boardList
+          tr   
+            td(width=80)= board.board_no 
+            td 
+                a(href=`/board/${board.board_no}`) #{board.title}
+            td(width=200)= board.writer

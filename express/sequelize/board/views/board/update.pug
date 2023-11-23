@@ -1,0 +1,38 @@
+extends ../layout
+
+block content
+  div.container-lg
+    h1 게시글 수정
+    form(action="/board/update", method="post" id="form") 
+      input(type="hidden", name="id" value=`${id}`)
+      table.table.form-group(border=1)
+          tr 
+            th(width="200") No
+            td #{id}
+          tr
+            th(width="200") Title
+            td 
+                input(type="text", name="title", value=`${board.title}`)
+          tr
+            th(width="200") Writer
+            td 
+                input(type="text", name="writer", value=`${board.writer}`)
+          tr
+            th(width="200") Content
+            td 
+                input(type="text", name="content", value=`${board.content}`)
+
+      div.btn-box
+        div.item
+          a.btn(href="/board") 목록
+
+        div.item
+          button.btn(type="submit") 수정
+          a.btn(href="javascript:;" id="btn-delete") 삭제
+
+  script.
+    document.getElementById('btn-delete').addEventListener('click', function() {
+      let form = document.getElementById('form')
+      form.action = '/board/delete';
+      form.submit();
+    });

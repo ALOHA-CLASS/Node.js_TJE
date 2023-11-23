@@ -11,7 +11,6 @@ let boardList = [
 
 // 👩‍💻 게시글 목록
 router.get('/', (req, res) => {
-    console.log('게시글 목록...');
     res.render('board/list', {boardList} )
 })
 
